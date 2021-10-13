@@ -1,0 +1,10 @@
+cython
+numpy
+imutils
+flask
+opencv-python
+opencv-contrib-python
+numpy
+scipy
+tensorflow
+mediapipe
