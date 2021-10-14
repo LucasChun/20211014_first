@@ -34,6 +34,7 @@ def stream():
         
         print('[wandlab] ', 'stream error : ',str(e))
 
+
 def stream_gen( src ):   
   
     try : 
@@ -41,11 +42,14 @@ def stream_gen( src ):
         streamer.run( src )
         
         while True :
-            
+
+
             frame = streamer.bytescode()
             yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-                    
+                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+
+
     except GeneratorExit :
         #print( '[wandlab]', 'disconnected stream' )
         streamer.stop()

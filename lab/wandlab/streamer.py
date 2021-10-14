@@ -31,7 +31,7 @@ class Streamer :
         if cv2.ocl.haveOpenCL() :
             cv2.ocl.setUseOpenCL(True)
         print('[wandlab] ', 'OpenCL : ', cv2.ocl.haveOpenCL())
-            
+
         self.capture = None
         self.thread = None
         self.width = 640
@@ -64,13 +64,14 @@ class Streamer :
         self.stop()
     
         if platform.system() == 'Windows' :        
-            self.capture = cv2.VideoCapture( src , cv2.CAP_DSHOW )
+            self.capture = cv2.VideoCapture(src, cv2.CAP_DSHOW )
         
         else :
-            self.capture = cv2.VideoCapture( src )
-            
+            self.capture = cv2.VideoCapture(scr)
+
         self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, self.width)
         self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, self.height)
+
         
         if self.thread is None :
             self.thread = Thread(target=self.update, args=())
